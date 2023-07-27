@@ -9,6 +9,9 @@ class PostController extends Controller
 {
     public function index()
     {
-        return Post::all();
+        return
+            [
+                'data' => Post::all(),
+            ];
     }
 }
