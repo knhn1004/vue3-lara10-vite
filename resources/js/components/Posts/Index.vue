@@ -1,3 +1,12 @@
+<script setup>
+import { onMounted } from "vue";
+import usePosts from "@/composables/usePosts";
+const { posts, getPosts } = usePosts();
+onMounted(() => {
+    getPosts();
+});
+</script>
+
 <template>
     <div class="overflow-hidden overflow-x-auto p-6 bg-white border-gray-200">
         <div class="min-w-full align-middle">
@@ -50,7 +59,7 @@
                         <td
                             class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900"
                         >
-                            {{ post.createdAt }}
+                            {{ post.created_at }}
                         </td>
                     </tr>
                 </tbody>
@@ -58,12 +67,3 @@
         </div>
     </div>
 </template>
-
-<script setup>
-import { onMounted } from "vue";
-import usePosts from "@/composables/usePosts";
-const { posts, getPosts } = usePosts();
-onMounted(() => {
-    getPosts();
-});
-</script>
